@@ -1,0 +1,28 @@
+﻿<Window x:Class="Sperinski_Triangle_Visualizazion.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sperinski_Triangle_Visualizazion"
+        mc:Ignorable="d"
+        Title="Sperinski Triangle" Height="800" Width="1100">
+    <Border Padding="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+            
+            <!-- Display -->
+            <Canvas x:Name="Display" Grid.Column="1" Margin="5 0 0 0">
+                <TextBlock Text="FPS: "/>
+            </Canvas>
+
+            <!-- Options -->
+            <StackPanel x:Name="OptionsPanel"  Grid.Column="0">
+                <Button x:Name="StartButton" Content="Start" Margin="0 0 5 5"/>
+            </StackPanel>
+            
+        </Grid>
+    </Border>
+</Window>
