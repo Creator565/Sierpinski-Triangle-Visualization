@@ -4,23 +4,82 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Sperinski_Triangle_Visualizazion"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="Sperinski Triangle" Height="800" Width="1100">
-    <Border Padding="5">
+    <Border x:Name="Window" Padding="5">
         <Grid>
             <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
             
             <!-- Display -->
-            <Canvas x:Name="Display" Grid.Column="1" Margin="5 0 0 0">
-                <TextBlock Text="FPS: "/>
+            <Canvas x:Name="Canvas_Display" Grid.Column="1" Margin="5 0 0 0">
+                <!-- Statisctics -->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock x:Name="FPSText" Text="FPS: 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="TimeElapsedText" Text="Time Elapsed: 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="FrameCounterText" Text="Frame Count: 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="MouseXText" Text="Mouse X: 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="MouseYText" Text="Mouse Y: 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="TextColorText" Text="Text Color: 0 0 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="ColorText" Text="Color: 0 0 0" Margin="0 0 15 0"/>
+                    <TextBlock x:Name="ComputedText" Text="is Triangle Ready: False" Margin="0 0 15 0"/>
+                </StackPanel>
+
             </Canvas>
 
             <!-- Options -->
-            <StackPanel x:Name="OptionsPanel"  Grid.Column="0">
-                <Button x:Name="StartButton" Content="Start" Margin="0 0 5 5"/>
+            <StackPanel x:Name="OptionsPanel"  Grid.Column="0" Margin="0 0 5 5">
+                <!-- Start Button -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Button x:Name="StartButton" Click="Start_Stop" Content="Start"/>
+                    <Button x:Name="ResetButton" Click="Reset" Content="Reset" Grid.Column="1"/>
+                </Grid>
+
+                <!-- Layer Control -->
+                <TextBlock Text="Layers" TextAlignment="Center" FontSize="15" FontWeight="Bold"  Margin="0 10 0 0"/>
+                <Grid Margin="0 5 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBox x:Name="LayersText" IsReadOnly="True" TextChanged="UpdateTriangle" Focusable="False" Background="#eee" Padding="5" FontSize="20" TextAlignment="Center"/>
+                    <!-- Layer Buttons -->
+                    <StackPanel Grid.Column="1">
+                        <Button x:Name="LayerAddButton" Content="+" Click="LayerAddButton_Click"/>
+                        <Button x:Name="LayerSubtarctButton" Content="-" Click="LayerSubtarctButton_Click"/>
+                    </StackPanel>
+                </Grid>
+                
+                <TextBlock Text="Size" TextAlignment="Center" FontSize="15" FontWeight="Bold"  Margin="0 10 0 0"/>
+                <Slider x:Name="SizeSlider" ValueChanged="UpdateTriangle" Orientation="Horizontal" Maximum="1000" Minimum="100" MaxHeight="1000" MinHeight="100" Margin="0 5 0 0"/>
+                <TextBlock Text="Color" TextAlignment="Center" FontSize="15" FontWeight="Bold"  Margin="0 10 0 0"/>
+                <xctk:ColorPicker x:Name="colorPicker" SelectedColor="Black" SelectedColorChanged="colorPicker_SelectedColorChanged"/>
+
+                <TextBlock Text="Thickness" TextAlignment="Center" FontSize="15" FontWeight="Bold"  Margin="0 10 0 0"/>
+                <Grid Margin="0 5 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox x:Name="ThicknessText" IsReadOnly="True" TextChanged="UpdateTriangle" Focusable="False" Background="#eee" Padding="5" FontSize="20" TextAlignment="Center"/>
+                    <!-- Layer Buttons -->
+                    <StackPanel Grid.Column="1">
+                        <Button x:Name="ThicknessAddButton" Content="+" Click="ThicknessAddButton_Click"/>
+                        <Button x:Name="ThicknessSubtarctButton" Content="-" Click="ThicknessSubtarctButton_Click"/>
+                    </StackPanel>
+                </Grid>
+
             </StackPanel>
             
         </Grid>

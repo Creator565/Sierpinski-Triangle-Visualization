@@ -8,4 +8,29 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Syncfusion.Shared.WPF">
+      <HintPath>..\..\..\.nuget\packages\syncfusion.shared.wpf\20.4.0.43\lib\net6.0-windows7.0\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.NET5">
+      <HintPath>..\..\..\Downloads\Extended.WPF.Toolkit.Binaries.NET.5\Extended.WPF.Toolkit.Binaries.NET.5\Xceed.Wpf.AvalonDock.NET5.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero.NET5">
+      <HintPath>..\..\..\Downloads\Extended.WPF.Toolkit.Binaries.NET.5\Extended.WPF.Toolkit.Binaries.NET.5\Xceed.Wpf.AvalonDock.Themes.Aero.NET5.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro.NET5">
+      <HintPath>..\..\..\Downloads\Extended.WPF.Toolkit.Binaries.NET.5\Extended.WPF.Toolkit.Binaries.NET.5\Xceed.Wpf.AvalonDock.Themes.Metro.NET5.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010.NET5">
+      <HintPath>..\..\..\Downloads\Extended.WPF.Toolkit.Binaries.NET.5\Extended.WPF.Toolkit.Binaries.NET.5\Xceed.Wpf.AvalonDock.Themes.VS2010.NET5.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit.NET5">
+      <HintPath>..\..\..\Downloads\Extended.WPF.Toolkit.Binaries.NET.5\Extended.WPF.Toolkit.Binaries.NET.5\Xceed.Wpf.Toolkit.NET5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
